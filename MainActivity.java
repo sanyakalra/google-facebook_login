@@ -134,15 +134,15 @@ public class MainActivity extends Activity implements View.OnClickListener,Googl
                     @Override
                     public void onCompleted(GraphUser user, Response response) {
                         if (user != null) {
-                            String email = user.getProperty("email").toString();
+                            //String email = user.getProperty("email").toString();
                             session1.createLoginSession(user.getName(), email);
                             Intent i = new Intent(MainActivity.this, HomeActivity.class);
-//                           Toast.makeText(LoginActivity.this, " Welcome " + user.getName(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, " Welcome " + user.getName(), Toast.LENGTH_SHORT).show();
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            db.addCustomer(new Customer(user.getName(), email, "", ""));
+                            //db.addCustomer(new Customer(user.getName(), email, "", ""));
                             Bundle b = new Bundle();
                             b.putString("phone", "");
-                            b.putString("email", email);
+                            //b.putString("email", email);
                             i.putExtras(b);
                             startActivity(i);
                         }
